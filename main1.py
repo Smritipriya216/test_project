@@ -20,15 +20,15 @@ def talk(text):
 def take_command():
     try:  
         with sr.Microphone() as source:
-            # hour = int(datetime.datetime.now().hour)
-            # if hour>= 0 and hour<12:
-            #     talk("Good Morning Sir !")
+             hour = int(datetime.datetime.now().hour)
+             if hour>= 0 and hour<12:
+                 talk("Good Morning Sir !")
 
-            # elif hour>= 12 and hour<18:
-            #     talk("Good Afternoon Sir !")  
+             elif hour>= 12 and hour<18:
+                 talk("Good Afternoon Sir !")  
 
-            # else:
-            #     talk("Good Evening Sir !") 
+             else:
+                 talk("Good Evening Sir !") 
 
             talk("I am your Assistant")
             talk("How can i help you")
@@ -36,8 +36,7 @@ def take_command():
             voice= listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            # if 'jarvis' in command:
-            #     command=command.replace('jarvis','')
+           
 
     except Exception :
         print("Unable to recognize your voice")
@@ -45,7 +44,7 @@ def take_command():
     return command
 
 # def run_jarvis():
-    # loop is taking a lot of time so i commented it out
+    
 while True:
     command = take_command().lower()
     print(command)
